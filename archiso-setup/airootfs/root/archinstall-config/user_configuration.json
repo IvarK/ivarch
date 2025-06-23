@@ -5,6 +5,74 @@
   },
   "bootloader": "Systemd-boot",
   "custom_commands": [],
+  "disk_config": {
+    "btrfs_options": {
+      "snapshot_config": null
+    },
+    "config_type": "default_layout",
+    "device_modifications": [
+      {
+        "device": "/dev/nvme0n1",
+        "partitions": [
+          {
+            "btrfs": [],
+            "dev_path": null,
+            "flags": ["boot", "esp"],
+            "fs_type": "fat32",
+            "mount_options": [],
+            "mountpoint": "/boot",
+            "obj_id": "56bc735f-13ce-4712-996b-29189ea15f52",
+            "size": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "GiB",
+              "value": 1
+            },
+            "start": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "MiB",
+              "value": 1
+            },
+            "status": "create",
+            "type": "primary"
+          },
+          {
+            "btrfs": [],
+            "dev_path": null,
+            "flags": [],
+            "fs_type": "ext4",
+            "mount_options": [],
+            "mountpoint": "/",
+            "obj_id": "01c299c7-8379-4ea8-a336-2e16631eb8df",
+            "size": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "B",
+              "value": 1023133351936
+            },
+            "start": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "B",
+              "value": 1074790400
+            },
+            "status": "create",
+            "type": "primary"
+          }
+        ],
+        "wipe": true
+      }
+    ]
+  },
   "hostname": "ivarch",
   "kernels": ["linux"],
   "locale_config": {
@@ -17,6 +85,9 @@
     "custom_servers": [],
     "mirror_regions": {},
     "optional_repositories": []
+  },
+  "network_config": {
+    "type": "iso"
   },
   "ntp": true,
   "packages": [],

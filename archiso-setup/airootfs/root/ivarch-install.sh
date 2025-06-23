@@ -20,4 +20,15 @@ yay -S --noconfirm \
   hyprlock xdg-desktop-portal-hyprland \
   kitty pipewire wireplumber \
   pavucontrol hyprpolkitagent \
-  uwsm libnewt
+  uwsm libnewt wlogout quickshell \
+  hyprland-qt-support hyprland-qtutils \
+  nvidia-dkms nvidia-utils egl-wayland \
+  lib32-nvidia-utils zsh telegram-desktop \
+  oh-my-zsh zsh-syntax-highlightning zsh-theme-powerlevel10k-git \
+  zsh-autocomplete
+  ttf-jetbrains-mono-nerd
+
+systemctl enable sddm.service --now
+
+git clone https://github.com/IvarK/ivarch.git --depth 1
+cp -r ivarch/dotfiles/* ~/.config/
