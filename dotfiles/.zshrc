@@ -38,6 +38,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
  
 alias yayy="yes | yay"
+alias ls="eza --icons"
  
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

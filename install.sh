@@ -15,7 +15,8 @@ echo "install various packages..."
 packages=$(grep -v '^#' packages.conf | tr '\n' ' ')
 sudo yay -S --needed $packages --noconfirm
 
-# copy dotfiles
-cp -r dotfiles/* ~/
+# rync content of dotfiles directory to home directory
+echo "Copying dotfiles to home directory..."
+rsync -av dotfiles/ $HOME/
 
 systemctl enable sddm.service --now
