@@ -13,7 +13,7 @@ echo "install various packages..."
 # ignore lines starting with #
 # and convert newlines to spaces
 packages=$(grep -v '^#' packages.conf | tr '\n' ' ')
-sudo yay -S --needed $packages --noconfirm
+yay -S --needed $packages --noconfirm
 
 # rync content of dotfiles directory to home directory
 echo "Copying dotfiles to home directory..."
