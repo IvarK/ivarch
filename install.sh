@@ -8,6 +8,12 @@ makepkg -si --noconfirm
 cd ..
 rm -rf yay-bin
 
+# enable multilib repository
+echo "Enabling multilib repository..."
+sudo sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
+sudo sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
+sudo pacman -Syu --noconfirm
+
 echo "install various packages..."
 # Read packages.conf and install it's packages all in one go
 # ignore lines starting with #
