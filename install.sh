@@ -1,12 +1,18 @@
 #!/bin/bash
 
-echo "Installing yay"
-sudo pacman -S --needed git base-devel --noconfirm
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si --noconfirm
-cd ..
-rm -rf yay-bin
+# check if yay is installed
+if ! command -v yay &> /dev/null; then
+  echo "yay is not installed. Installing yay..."
+  # Install yay
+  sudo pacman -S --needed git base-devel --noconfirm
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si --noconfirm
+  cd ..
+  rm -rf yay-bin
+else
+  echo "yay is already installed."
+fi
 
 # enable multilib repository
 echo "Enabling multilib repository..."
@@ -25,4 +31,4 @@ yay -S --needed $packages --noconfirm
 echo "Copying dotfiles to home directory..."
 rsync -av dotfiles/ $HOME/
 
-systemctl enable sddm.service --now
+systemctl enable sddm.service
